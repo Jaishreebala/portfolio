@@ -23,6 +23,7 @@ a{
     scroll-snap-align: start;
     /* scroll-snap-margin-top: var(--headerHeight); */
 }
+
 header{
     position: sticky;
     top: 0;
@@ -32,6 +33,7 @@ header{
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 1.25rem;
+    z-index: 1;
 }
 header img{
     height: 3rem;
@@ -67,6 +69,8 @@ header nav ul li{
 .hamburger{
     display: none;
 }
+
+/* main section general styles */
 main{
     scroll-snap-type: y;
 }
@@ -76,10 +80,93 @@ section{
     background-color: #8854BC;
 
 }
+/* home page styles */
+#home{
+    background: linear-gradient(72.26deg, #8854BC 0%, #0095CF 95.61%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#home .text{
+    font-size: 2rem;
+    color: #fff;
+    padding: 1.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    animation: swipeAnimation 1s ease;
+}
+/* #home .swipeText{
+    font-weight: 500;
+    animation: swipeAnimation 1s ease;
+} */
+.circle{
+    background-color: #fff;
+    opacity: 0.2;
+    width: 250px;
+    height: 250px;
+    bottom: 50px;
+    left: 50px;
+    position: absolute;
+    border-radius: 50%;
+}
+.circle:nth-child(1){
+    top: 50px;
+    width: 350px;
+    height: 350px;
+    left: 80vw;
+}
+#name path {
+    stroke-width: 4px;
+    stroke: white;
+    animation: fill 2.5s ease  2.5s forwards;
+}
+
+/* Animations */
+@keyframes fill {
+    0% {
+        fill: rgba(255, 255, 255, 0);
+    }
+    50%{
+        fill: hsla(0, 0%, 100%, 0.5);
+    }
+    100% {
+      fill: white;
+    }
+}
+
+@keyframes swipeAnimation {
+    0%{
+        left: 50%;
+        transform: translate(-50%, 100%);
+        opacity: 1;
+    }
+    50%{
+        opacity: 0; 
+    }
+    100%{
+        left: 45%;
+        transform: translateX(-100%, 100%);
+        /* transform: translate(-50%, 100%); */
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 920px){
+    #name{
+        height: 6rem;
+    }
+}
 
 /* Responsive nav */
 @media screen and (max-width: 800px){
-    body{
+    #name{
+        height: 5rem;
+    }
+    .hidden{
         overflow: hidden;
     }
     .menuItems{
@@ -135,3 +222,23 @@ section{
     }
 
 }
+
+ @media screen and (max-width: 686px){
+    #name{
+        height: 3rem;
+    }
+
+    #home .text{
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 422px){
+    #name{
+        height: 2rem;
+    }
+
+    #home .text{
+        font-size: 1rem;
+    }
+} 
