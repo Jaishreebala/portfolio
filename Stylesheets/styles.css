@@ -219,6 +219,7 @@ main{
     left: 0;
     border-radius: 29px 29px 0px 0px;
     z-index:  -1;
+    display: none;
 }
 .project-card h1{
     font-size: 1.5rem;
@@ -277,7 +278,6 @@ main{
     100%{
         left: 45%;
         transform: translateX(-100%, 100%);
-        /* transform: translate(-50%, 100%); */
         opacity: 0;
     }
 }
