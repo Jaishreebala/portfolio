@@ -19,26 +19,26 @@
         <nav>
             <a href="#home">
                 <div class="logo">
-                    <img src="./Images/logo.svg" alt="Jaishree Bala Logo">
+                    <img id="logo" src="./Images/logo.svg" alt="Jaishree Bala Logo">
                     <span style="padding-left: 10px;">Jaishree Bala</span>
                 </div>
             </a>
 
             <ul class="menuItems">
-                <a href="#home" class="selected">
+                <a href="#home" class="selected menuLinks">
                     <li>Home</li>
                 </a>
-                <a href="#projects">
+                <a href="#projects" class="menuLinks">
                     <li>Projects</li>
                 </a>
-                <a href="#contact">
+                <a href="#contact" class="menuLinks">
                     <li>Contact</li>
                 </a>
-                <a href="./Assets/Jaishree Bala Resume Fall 2020.pdf" target="_blank">
+                <a href="./Assets/Jaishree Balamurugan Fall 2020 Resume.pdf" target="_blank" class="menuLinks">
                     <li>Resume</li>
                 </a>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" id="burger">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
@@ -449,7 +449,9 @@
             </div>
         </section>
     </main>
-
+    <div class="cursor">
+        <span class="cursor-text"></span>
+    </div>
     <script src="./Javascript/app.js"></script>
     <script>
         new Vivus("name", { duration: 100 });
