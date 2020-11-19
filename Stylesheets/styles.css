@@ -308,6 +308,7 @@ main{
     font-size: 0.65rem;
     color: #fff;
     font-weight: 300;
+    text-align: center;
 }
 .interactive-purple{
     background-color: #8854BC;
