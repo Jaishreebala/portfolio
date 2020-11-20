@@ -48,12 +48,21 @@ function smoothScrollBg() {
     else {
         document.body.classList.remove("projects-gradient")
     }
-
-
-    console.log(isInViewport(document.getElementById("contact")))
-    // console.log(this.innerHeight)
-    // console.log(this.scrollY)
-    // console.log(document.documentElement.clientHeight)
+    if (isInViewport(document.getElementById("home"))) {
+        listItems[1].classList.remove("selected");
+        listItems[2].classList.remove("selected");
+        listItems[0].classList.add("selected");
+    } else
+        if (isInViewport(document.getElementById("contact"))) {
+            listItems[1].classList.remove("selected");
+            listItems[0].classList.remove("selected");
+            listItems[2].classList.add("selected");
+        }
+        else {
+            listItems[0].classList.remove("selected");
+            listItems[2].classList.remove("selected");
+            listItems[1].classList.add("selected");
+        }
 }
 
 function isInViewport(element) {

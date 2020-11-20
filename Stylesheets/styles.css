@@ -507,8 +507,17 @@ main{
 /* for touch screens */
 /* smartphones, touchscreens */
 @media (hover: none) and (pointer: coarse) {
-
-.cursor{
-    display: none;
-}
+    .cursor{
+        display: none;
+    }
+}/* stylus-based screens */
+@media (hover: none) and (pointer: fine) {
+    .cursor{
+        display: none;
+    }
+}/* Nintendo Wii controller, Microsoft Kinect */
+@media (hover: hover) and (pointer: coarse) {
+    .cursor{
+        display: none;
+    }
 }
