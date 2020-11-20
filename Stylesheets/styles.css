@@ -503,3 +503,12 @@ main{
         width: 3rem;
     }
 }
+
+/* for touch screens */
+/* smartphones, touchscreens */
+@media (hover: none) and (pointer: coarse) {
+
+.cursor{
+    display: none;
+}
+}
