@@ -13,6 +13,64 @@ let interactiveText = mouse.querySelector("span");
 
 // Functions
 
+function typewriter() {
+    countText++;
+    delayCounter++;
+    swipeText.style.animation = `swipeAnimation 1s ease ${3 * delayCounter}s`;
+    setTimeout(() => {
+        swipeText.innerText = swipeTextList[countText];
+    }, 500)
+    if (countText == 4) {
+        countText = 0;
+    }
+    setTimeout(typewriter, 3000)
+
+}
+
+function cursor(e) {
+    mouse.style.top = e.pageY + "px";
+    mouse.style.left = e.pageX + "px";
+}
+function interactiveMouse(e) {
+    const item = e.target;
+    if (item.id === "logo" || item.id === "burger" || item.classList.contains('button') || item.parentNode.classList.contains("links-area") || item.parentNode.classList.contains("menuLinks")) {
+        mouse.classList.add("interactive-purple")
+        interactiveText.innerHTML = item.innerText || "tap";
+    } else {
+        mouse.classList.remove("interactive-purple");
+        interactiveText.innerHTML = "";
+    }
+}
+function smoothScrollBg() {
+    if ((this.scrollY > this.innerHeight / 2) && !isInViewport(document.getElementById("contact"))) {
+        document.body.classList.add("projects-gradient")
+    }
+    else {
+        document.body.classList.remove("projects-gradient")
+    }
+
+
+    console.log(isInViewport(document.getElementById("contact")))
+    // console.log(this.innerHeight)
+    // console.log(this.scrollY)
+    // console.log(document.documentElement.clientHeight)
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight * 2 || document.documentElement.clientHeight * 2) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+//  Event Listeners and timeouts
+window.addEventListener("mousemove", cursor);
+window.addEventListener("mouseover", interactiveMouse);
+window.addEventListener("scroll", smoothScrollBg);
+setTimeout(typewriter, 3000)
 hamburger.addEventListener("click", () => {
     menuItems.classList.toggle('toggleMenu');
     document.body.classList.toggle("hidden");
@@ -33,39 +91,3 @@ listItems.forEach(listItem => {
         listItem.classList.add("selected");
     })
 })
-
-
-function typewriter() {
-    countText++;
-    delayCounter++;
-    swipeText.style.animation = `swipeAnimation 1s ease ${3 * delayCounter}s`;
-    setTimeout(() => {
-        swipeText.innerText = swipeTextList[countText];
-    }, 500)
-    if (countText == 4) {
-        countText = 0;
-    }
-    setTimeout(typewriter, 3000)
-
-}
-
-setTimeout(typewriter, 3000)
-
-
-function cursor(e) {
-    mouse.style.top = e.pageY + "px";
-    mouse.style.left = e.pageX + "px";
-}
-function interactiveMouse(e) {
-    const item = e.target;
-    console.log(item.parentNode.classList)
-    if (item.id === "logo" || item.id === "burger" || item.classList.contains('button') || item.parentNode.classList.contains("links-area") || item.parentNode.classList.contains("menuLinks")) {
-        mouse.classList.add("interactive-purple")
-        interactiveText.innerHTML = item.innerText || "tap";
-    } else {
-        mouse.classList.remove("interactive-purple");
-        interactiveText.innerHTML = "";
-    }
-}
-window.addEventListener("mousemove", cursor);
-window.addEventListener("mouseover", interactiveMouse);
